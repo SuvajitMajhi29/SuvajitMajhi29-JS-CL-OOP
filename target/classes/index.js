@@ -75,7 +75,29 @@ TODO: Edit the class named 'FoodProduct' below so that it extends the Product cl
 - getters and setters using the correct naming convention and syntax for the private variable 
 */
 
-class FoodProduct  {
+class FoodProduct extends Product  {
+    #expirationDate; // private variable
+
+    constructor(name, description, expirationDate) {
+        super(name, description); // call the parent class constructor
+        this.#expirationDate = expirationDate; // initialize the private variable
+    }
+
+    // overridden print method
+    print() {
+        return `Product name: ${this.getName()}\n` +
+               `Product description: ${this.getDescription()}\n` +
+               `Expiration Date: ${this.#expirationDate}`;
+    }
+
+    // getter and setter for expirationDate
+    getExpirationDate() {
+        return this.#expirationDate;
+    }
+
+    setExpirationDate(expirationDate) {
+        this.#expirationDate = expirationDate;
+    }
 
 }
 
